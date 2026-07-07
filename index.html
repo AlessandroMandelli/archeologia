@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Ceramic - Summary Form</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="toolbar" role="toolbar" aria-label="Strumenti scheda">
+    <button id="newBtn" type="button">Nuova</button>
+    <button id="addRowsBtn" type="button">+ righe</button>
+    <button id="undoBtn" type="button">Annulla tratto</button>
+    <button id="clearSketchBtn" type="button">Pulisci schizzo</button>
+    <span class="small-label">Penna <input id="penSize" type="range" min="1" max="10" value="2"></span>
+    <button id="saveLocalBtn" type="button">Salva locale</button>
+    <button id="loadLocalBtn" type="button">Carica locale</button>
+    <button id="saveJsonBtn" type="button">Esporta JSON</button>
+    <label class="file-button" for="jsonInput">Importa JSON</label>
+    <input id="jsonInput" type="file" accept="application/json,.json">
+    <button id="savePdfBtn" type="button">Esporta PDF</button>
+    <span class="status" id="status">Pronto</span>
+  </div>
+
+  <div class="page-wrap">
+    <main id="sheet" class="sheet" aria-label="Ceramic summary form">
+      <table class="header-table">
+        <tr class="title-row">
+          <td class="title-left">Ceramic - Summary form</td>
+          <td class="title-right">DIME</td>
+        </tr>
+        <tr class="meta-row">
+          <td colspan="2">
+            Area <input class="inline-input" id="area" data-field="area" type="text">
+            Strat.Unit <input class="inline-input" id="stratUnit" data-field="stratUnit" type="text">
+            Room <input class="inline-input" id="room" data-field="room" type="text">
+          </td>
+        </tr>
+      </table>
+
+      <section class="main-layout">
+        <div class="left-table">
+          <table class="count-table" id="countTable">
+            <thead>
+              <tr>
+                <th class="type-col">Type/Form</th>
+                <th class="n-col">Rims</th>
+                <th class="n-col">Handles</th>
+                <th class="n-col">Feet</th>
+                <th class="n-col">Bodies</th>
+              </tr>
+            </thead>
+            <tbody id="countBody"></tbody>
+          </table>
+        </div>
+
+        <div class="right-box">
+          <div class="right-title">Fabric and remarks</div>
+          <textarea id="remarks" class="remarks" data-field="remarks" placeholder="Note testuali..."></textarea>
+          <div class="canvas-wrap" id="canvasWrap">
+            <canvas id="sketchCanvas"></canvas>
+            <div class="hint">schizzo a penna/stilo</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
