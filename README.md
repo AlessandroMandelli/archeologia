@@ -1,6 +1,6 @@
 # Ceramic Summary Form PWA
 
-Scheda HTML/PWA per conteggio ceramico, pensata per uso offline su tablet/e-ink Boox.
+Scheda HTML/PWA per conteggio ceramico, pensata per uso offline su tablet/e-ink Boox in orientamento verticale.
 
 ## Funzioni
 
@@ -9,7 +9,8 @@ Scheda HTML/PWA per conteggio ceramico, pensata per uso offline su tablet/e-ink 
 - Riquadro destro con note e schizzo a penna/stilo.
 - Esportazione JSON.
 - Importazione JSON.
-- Salvataggio locale nel browser.
+- Salvataggio locale nel browser: copia temporanea sullo stesso dispositivo, non sostituisce il file JSON.
+- Reset completo della scheda: campi, tabella, note, schizzo e copia locale.
 - Esportazione PDF tramite stampa del browser.
 - PWA installabile e utilizzabile offline dopo il primo caricamento.
 
@@ -32,3 +33,16 @@ Scheda HTML/PWA per conteggio ceramico, pensata per uso offline su tablet/e-ink 
 ## Nota tecnica
 
 Lo schizzo viene salvato sia come tratti vettoriali interni sia come immagine PNG dentro al JSON. Questo aumenta il peso del file JSON, ma permette di riaprire la scheda mantenendo il disegno.
+
+
+## Nota su Salva locale / Carica locale
+
+`Salva locale` memorizza la scheda nel browser del dispositivo usando localStorage. Serve come recupero rapido se chiudi la pagina o lavori offline sullo stesso Boox. `Carica locale` richiama quella copia. Non genera un file trasferibile: per archiviare, condividere o riaprire la scheda su un altro dispositivo usa `Esporta JSON` e poi `Importa JSON`.
+
+## Layout verticale
+
+La versione v2 usa colonne fisse e un layout A4 verticale. Il ridimensionamento manuale delle colonne non e previsto: le larghezze sono bloccate per mantenere la corrispondenza con la scheda cartacea e migliorare la stabilita su e-ink.
+
+## Reset scheda
+
+Il pulsante `Reset scheda` pulisce tutta la scheda: intestazione, righe della tabella, note, schizzo e copia locale salvata nel browser. Prima di procedere chiede conferma.

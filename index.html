@@ -12,13 +12,13 @@
 </head>
 <body>
   <div class="toolbar" role="toolbar" aria-label="Strumenti scheda">
-    <button id="newBtn" type="button">Nuova</button>
+    <button id="resetBtn" type="button" class="danger">Reset scheda</button>
     <button id="addRowsBtn" type="button">+ righe</button>
     <button id="undoBtn" type="button">Annulla tratto</button>
     <button id="clearSketchBtn" type="button">Pulisci schizzo</button>
     <span class="small-label">Penna <input id="penSize" type="range" min="1" max="10" value="2"></span>
-    <button id="saveLocalBtn" type="button">Salva locale</button>
-    <button id="loadLocalBtn" type="button">Carica locale</button>
+    <button id="saveLocalBtn" type="button" title="Salva una copia temporanea solo su questo browser/dispositivo">Salva locale</button>
+    <button id="loadLocalBtn" type="button" title="Ricarica la copia temporanea salvata su questo browser/dispositivo">Carica locale</button>
     <button id="saveJsonBtn" type="button">Esporta JSON</button>
     <label class="file-button" for="jsonInput">Importa JSON</label>
     <input id="jsonInput" type="file" accept="application/json,.json">
@@ -45,6 +45,13 @@
       <section class="main-layout">
         <div class="left-table">
           <table class="count-table" id="countTable">
+            <colgroup>
+              <col class="type-col">
+              <col class="num-col">
+              <col class="num-col">
+              <col class="num-col">
+              <col class="num-col">
+            </colgroup>
             <thead>
               <tr>
                 <th class="type-col">Type/Form</th>
