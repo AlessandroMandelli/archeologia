@@ -10,6 +10,7 @@ Scheda HTML/PWA per conteggio ceramico, pensata per uso offline su tablet/e-ink 
 - Esportazione JSON.
 - Importazione JSON.
 - Salvataggio locale nel browser: copia temporanea sullo stesso dispositivo, non sostituisce il file JSON.
+- Nuova scheda vuota.
 - Reset completo della scheda: campi, tabella, note, schizzo e copia locale.
 - Esportazione PDF tramite stampa del browser.
 - PWA installabile e utilizzabile offline dopo il primo caricamento.
@@ -41,8 +42,14 @@ Lo schizzo viene salvato sia come tratti vettoriali interni sia come immagine PN
 
 ## Layout verticale
 
-La versione v2 usa colonne fisse e un layout A4 verticale. Il ridimensionamento manuale delle colonne non e previsto: le larghezze sono bloccate per mantenere la corrispondenza con la scheda cartacea e migliorare la stabilita su e-ink.
+La versione v4 usa colonne fisse e un layout verticale. Il foglio non ha piu un'altezza minima forzata: termina con l'ultima riga della tabella e si allunga quando aggiungi righe. I testi lunghi vengono contenuti nelle celle con taglio/overflow controllato, evitando che escano dai bordi durante il resize.
 
 ## Reset scheda
 
 Il pulsante `Reset scheda` pulisce tutta la scheda: intestazione, righe della tabella, note, schizzo e copia locale salvata nel browser. Prima di procedere chiede conferma.
+
+## Ordine pulsanti
+
+Barra principale: `Nuova scheda`, `Reset scheda`, `+ righe`, `Salva locale`, `Carica locale`, `Esporta JSON`, `Importa JSON`, `Esporta PDF`.
+
+Gli strumenti dello schizzo (`Annulla tratto`, `Pulisci schizzo`, dimensione penna) sono dentro la colonna destra, sopra l'area di disegno.

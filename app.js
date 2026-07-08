@@ -1,5 +1,5 @@
 const ROWS_INITIAL = 38;
-const APP_VERSION = 'v3-portrait-fixed-columns-reset';
+const APP_VERSION = 'v4-portrait-grow-with-table';
 const STORAGE_KEY = 'ceramic-summary-form-current';
 
 const body = document.getElementById('countBody');
@@ -169,7 +169,7 @@ function loadData(data){
   scheduleAutosave();
 }
 
-function clearForm(){
+function clearForm(removeLocal = false){
   document.getElementById('area').value = '';
   document.getElementById('stratUnit').value = '';
   document.getElementById('room').value = '';
@@ -178,8 +178,13 @@ function clearForm(){
   strokes = [];
   addRows(ROWS_INITIAL);
   resizeCanvas(false);
-  localStorage.removeItem(STORAGE_KEY);
-  setStatus('Nuova scheda');
+  if(removeLocal){
+    localStorage.removeItem(STORAGE_KEY);
+    setStatus('Scheda resettata');
+  } else {
+    saveLocal(false);
+    setStatus('Nuova scheda');
+  }
 }
 
 function safeNamePart(s){
@@ -221,8 +226,12 @@ function scheduleAutosave(){
   autosaveTimer = setTimeout(() => saveLocal(false), 600);
 }
 
+document.getElementById('newBtn').addEventListener('click', () => {
+  if(confirm('Creare una nuova scheda vuota? I dati non esportati in JSON o PDF verranno sostituiti.')) clearForm(false);
+});
+
 document.getElementById('resetBtn').addEventListener('click', () => {
-  if(confirm('Reset scheda: cancellare tutti i campi, tutte le righe compilate, le note, lo schizzo e la copia locale?')) clearForm();
+  if(confirm('Reset scheda: cancellare tutti i campi, tutte le righe compilate, le note, lo schizzo e la copia locale?')) clearForm(true);
 });
 
 document.getElementById('addRowsBtn').addEventListener('click', () => addRows(5));

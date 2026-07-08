@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ceramic-summary-form-v1';
+const CACHE_NAME = 'ceramic-summary-form-v4';
 const APP_FILES = [
   './',
   './index.html',

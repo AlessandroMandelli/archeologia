@@ -12,11 +12,9 @@
 </head>
 <body>
   <div class="toolbar" role="toolbar" aria-label="Strumenti scheda">
+    <button id="newBtn" type="button">Nuova scheda</button>
     <button id="resetBtn" type="button" class="danger">Reset scheda</button>
     <button id="addRowsBtn" type="button">+ righe</button>
-    <button id="undoBtn" type="button">Annulla tratto</button>
-    <button id="clearSketchBtn" type="button">Pulisci schizzo</button>
-    <span class="small-label">Penna <input id="penSize" type="range" min="1" max="10" value="2"></span>
     <button id="saveLocalBtn" type="button" title="Salva una copia temporanea solo su questo browser/dispositivo">Salva locale</button>
     <button id="loadLocalBtn" type="button" title="Ricarica la copia temporanea salvata su questo browser/dispositivo">Carica locale</button>
     <button id="saveJsonBtn" type="button">Esporta JSON</button>
@@ -68,6 +66,11 @@
         <div class="right-box">
           <div class="right-title">Fabric and remarks</div>
           <textarea id="remarks" class="remarks" data-field="remarks" placeholder="Note testuali..."></textarea>
+          <div class="sketch-tools" role="toolbar" aria-label="Strumenti schizzo">
+            <button id="undoBtn" type="button">Annulla tratto</button>
+            <button id="clearSketchBtn" type="button">Pulisci schizzo</button>
+            <label class="small-label" for="penSize">Penna <input id="penSize" type="range" min="1" max="10" value="2"></label>
+          </div>
           <div class="canvas-wrap" id="canvasWrap">
             <canvas id="sketchCanvas"></canvas>
             <div class="hint">schizzo a penna/stilo</div>
